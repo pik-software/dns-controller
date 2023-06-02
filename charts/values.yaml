@@ -1,0 +1,19 @@
+# Default values for haveged.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+name: dns-controller
+image:
+  repository: cr.yandex/crpm5h6tsjpdgvehbfdf/dns-controller
+  tag: "6c5208e8"
+  pull_secret: ""
+env:
+  name: "test"
+  folder_id: ""
+  domain: ""
+resources: 
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi

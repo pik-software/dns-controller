@@ -1,0 +1,9 @@
+apiVersion: v2
+name: dns-controller
+type: application
+version: 1.0.1
+appVersion: "0.0.1"
+description: A helm chart for deploy dns-controller 
+keywords:
+- dns
+- controller

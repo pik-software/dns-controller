@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name | quote }}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.name | quote }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name | quote }}
+    spec:
+      containers:
+        - name: app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          env:
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: ENV
+              value: {{ .Values.env.name | quote }}
+            - name: YC_FOLDER_ID
+              value: {{ .Values.env.folder_id | quote }} 
+            - name: DOMAIN
+              value: {{ .Values.env.domain | quote }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - sleep
+                  - '5'
+      terminationGracePeriodSeconds: 60
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app: {{ .Values.name | quote }}
+      imagePullSecrets:
+      - name: image-pull-secret
