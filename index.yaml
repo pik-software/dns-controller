@@ -2,16 +2,16 @@ apiVersion: v1
 entries:
   dns-controller:
   - apiVersion: v2
-    appVersion: 0.0.2
-    created: "2023-06-04T21:29:45.190332+03:00"
+    appVersion: 0.0.3
+    created: "2023-06-05T23:16:31.675222+03:00"
     description: A helm chart for deploy dns-controller
-    digest: b1fa16557b1eaf1445dd9f86adc29a262913409c7bbb2e0710f799209a598bbe
+    digest: eea7f911fb22ec3acce57092450e67b7ece073af4651cfb1f4448a2df117003c
     keywords:
     - dns
     - controller
     name: dns-controller
     type: application
     urls:
-    - https://pik-software.github.io/dns-controller/dns-controller-1.0.2.tgz
-    version: 1.0.2
-generated: "2023-06-04T21:29:45.189918+03:00"
+    - https://pik-software.github.io/dns-controller/dns-controller-1.0.3.tgz
+    version: 1.0.3
+generated: "2023-06-05T23:16:31.674784+03:00"
