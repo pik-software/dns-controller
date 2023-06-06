@@ -4,7 +4,7 @@
 name: dns-controller
 image:
   repository: cr.yandex/crpm5h6tsjpdgvehbfdf/dns-controller
-  tag: "21698584"
+  tag: "72eee19e"
   pull_secret: ""
 env:
   name: "test"
